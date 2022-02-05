@@ -1,0 +1,24 @@
+{
+  "files": [
+    "index.ts"
+  ],
+  "include": ["common/java-types/j2ts/java-types.ts", "common/java-types/j2ts/java-types.ts"],
+  "compilerOptions": {
+    "target": "ES2021",
+    "allowJs": true,
+    "strict": true,
+    // https://www.typescriptlang.org/tsconfig#isolatedModules
+    // ensure each file can be safely transpiled without relying on other imports
+    "isolatedModules": true,
+    // https://www.typescriptlang.org/tsconfig#esModuleInterop
+    // Emit additional JavaScript to ease support for importing CommonJS modules.
+    // This enables `allowSyntheticDefaultImports` for type compatibility.
+    "esModuleInterop": true,
+    "module": "ES2020",
+    "moduleResolution": "Node",
+    // since we're using esbuild and we do not want to export definitions, but just linting,
+    // we turn both compilation and declaration emission off.
+    // use emitDeclarationOnly if we want to emit only declarations for export
+    "noEmit": true,
+  }
+}
